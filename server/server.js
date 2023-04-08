@@ -1338,7 +1338,57 @@
     };
     var seedData = {
         books: { },
-        category: { }
+        category: {
+            "e1c4e8ee-a88a-4d20-a4c8-eb0ba2be731d": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Бази данни",
+                "name": "database",
+                "hidden": "0",
+                "_createdOn": 1680996009563
+            },
+            "7cd24368-dfcb-4368-afda-d7ecec6d33f6": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Дизайн",
+                "name": "design",
+                "hidden": "0",
+                "_createdOn": 1680996121267
+            },
+            "78e6bbee-8ce5-4194-9f9a-584453e6a930": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Програмиране",
+                "name": "programming",
+                "hidden": "0",
+                "_createdOn": 1680996201426
+            },
+            "28529d34-da97-4a29-b7d8-f27cf33c5988": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Уеб разработки",
+                "name": "development",
+                "hidden": "0",
+                "_createdOn": 1680996574677
+            },
+            "0b2863ea-22c3-4505-bb24-11042ac128ba": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Мрежи",
+                "name": "networks",
+                "hidden": "0",
+                "_createdOn": 1680996730877
+            },
+            "a71ec823-8fea-4dde-9904-d9897ac2189e": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "Операционни системи",
+                "name": "operating-system",
+                "hidden": "0",
+                "_createdOn": 1680996880224
+            },
+            "cfe05c98-f4b4-4ce3-82a9-571ead886a04": {
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "title": "CAD системи",
+                "name": "cad-systems",
+                "hidden": "0",
+                "_createdOn": 1680996985326
+            }
+        }
     };
     var rules$1 = {
         users: {
