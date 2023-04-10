@@ -1,8 +1,10 @@
-
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div>.</div>
+    <div>code<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <Footer />
+    </div>
   );
 }
 
