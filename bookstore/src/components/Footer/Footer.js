@@ -30,7 +30,7 @@ const Footer = () => {
                         <div className="col-lg-3 col-md-6">
                             <h4 className="mb-3">Къде да ни намерите</h4>
                             <hr />
-                            <p><strong>Онлайн книжарница Сиела</strong><br />гр. София,<br />ул. „Поручик Христо Топракчиев“ 11,<br />1528 НПЗ Искър,<br />Книжна борса Искър, ет. 3, офис 33<br /><strong>Bulgaria</strong></p>
+                            <p><strong>Онлайн книжарница</strong><br />гр. София,<br />бул. „Тодор Александров“ 11,<br />Книжна борса, ет. 3, офис 1<br /><strong>Bulgaria</strong></p>
                             <hr className="d-block d-md-none" />
                         </div>
                         <div className="col-lg-3 col-md-6">

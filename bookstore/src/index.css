@@ -225,13 +225,7 @@ h1 {
   width: 500px;
 }
 
-.breadcrumb {
-  -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-  background: #fff;
-  border-radius: 0;
-  padding: 0.5rem 1rem;
-}
+ 
 
 /*
 *
@@ -274,6 +268,9 @@ h1 {
 * ======================================================================
 *
 */
+#all {
+  min-height: 500px;
+}
 #advantages {
   text-align: center;
 }
