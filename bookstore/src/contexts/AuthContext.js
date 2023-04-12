@@ -20,7 +20,7 @@ export const AuthProvider = ({
 
             setAuth(result);
 
-            navigate('/');
+            navigate('/books');
         } catch (error) {
             console.log('There is a problem');
         }
@@ -37,7 +37,7 @@ export const AuthProvider = ({
 
             setAuth(result);
 
-            navigate('/');
+            navigate('/books');
         } catch (error) {
             console.log('There is a problem');
         }

@@ -3,7 +3,7 @@ import { useAuthContext } from '../../contexts/AuthContext';
 
 import { useGameContext } from "../../contexts/GameContext";
 
-export const GameOwner = ({
+export const BookOwner = ({
     children,
 }) => {
     const { gameId } = useParams();
