@@ -9,28 +9,15 @@ export const Home = () => {
     return (
         <>
             <Advantages />
-            <div id="hot">
-                <div className="box py-4">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <h2 className="mb-0">Нови книги</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="container">
-                    <div className="product-slider owl-carousel owl-theme owl-loaded owl-drag">
-                        <div className="owl-stage-outer">
-                            <div className="owl-stage">
-                                { books.slice(-5).map( x =>
-                                <div  key={x._id} className="owl-item active" style={{ width: "222px" }}>
-                                    <div className="item">
-                                        <ProductItem {...x} />
-                                    </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <div className="row products">
+                            {books.filter(x => x.hidden === false).slice(-4).map(x =>
+                                <div key={x._id} className="col-lg-3 col-md-4">
+                                    <ProductItem {...x} />
                                 </div>
-                                )}
-                            </div>
+                            )}
                         </div>
                     </div>
                 </div>

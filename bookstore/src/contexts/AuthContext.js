@@ -10,6 +10,8 @@ export const AuthProvider = ({
     children,
 }) => {
     const [auth, setAuth] = useLocalStorage('auth', {});
+    const [toggleMenu, setToggleMenu] = useLocalStorage('toggle', {});
+
     const navigate = useNavigate();
 
     const authService = authServiceFactory(auth.accessToken)
@@ -44,19 +46,25 @@ export const AuthProvider = ({
     };
 
     const onLogout = async () => {
-        await authService.logout();
+        //await authService.logout();
 
         setAuth({});
+    };
+
+    const changeToggle = () => {
+        setToggleMenu(!toggleMenu);
     };
 
     const contextValues = {
         onLoginSubmit,
         onRegisterSubmit,
         onLogout,
+        changeToggle,
         userId: auth._id,
         token: auth.accessToken,
         userEmail: auth.email,
         isAuthenticated: !!auth.accessToken,
+        toggleMenu,
     };
 
     return (
@@ -70,6 +78,5 @@ export const AuthProvider = ({
 
 export const useAuthContext = () => {
     const context = useContext(AuthContext);
-
     return context;
 };
