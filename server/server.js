@@ -1398,7 +1398,7 @@
                 "issuedYear": 2018,
                 "category": "7cd24368-dfcb-4368-afda-d7ecec6d33f6",
                 "price": 25,
-                "imageUrl": "https://www.ciela.com/media/catalog/product/cache/9a7ceae8a5abbd0253425b80f9ef99a5/c/s/css-3-osnovi-na-ezika-na-programiraneto-d.k._academy-asenevci.jpg",
+                "imageUrl": "https://www.ciela.com/media/catalog/product/cache/9a7ceae8a5abbd0253425b80f9ef99a5/b/y/byrz-start-v-adaptivnia-dizain-9789549341423.jpg",
                 "sale": true,
                 "news": true,
                 "gift": true,
@@ -1493,7 +1493,7 @@
             },
             "8948b349-ccda-4cdd-9268-b080184a71a4":{
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "title": "Официално ръководство за сертификация - том 1",
+                "title": "Официално ръководство за сертификация - том 1 - CCNP and CCIE Enterprise Core",
                 "author": "Брад Еджуърт",
                 "publisher": "Алекс Софт",
                 "language": "Български",
