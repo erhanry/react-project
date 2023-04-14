@@ -1087,7 +1087,7 @@
                 if (user !== undefined) {
                     context.user = user;
                 } else {
-                    throw new CredentialError$1('Invalid access token');
+                    //throw new CredentialError$1('Invalid access token'); Erhan
                 }
             }
 
@@ -1140,7 +1140,7 @@
                         context.protectedStorage.delete('sessions', session._id);
                     }
                 } else {
-                    throw new CredentialError$1('User session does not exist');
+                    //throw new CredentialError$1('User session does not exist'); Erhan
                 }
             }
 
