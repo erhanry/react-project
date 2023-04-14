@@ -1,19 +1,19 @@
 import { useParams, Outlet, Navigate } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 
-import { useGameContext } from "../../contexts/GameContext";
+import { useBookContext } from "../../contexts/BookContext";
 
 export const BookOwner = ({
     children,
 }) => {
-    const { gameId } = useParams();
-    const { getGame } = useGameContext();
+    const { bookId } = useParams();
+    const { getBook } = useBookContext();
     const { userId } = useAuthContext();
 
-    const currentGame = getGame(gameId);
+    const currentBook = getBook(bookId);
 
-    if (currentGame && currentGame._ownerId !== userId) {
-        return <Navigate to={`/catalog/${gameId}`} replace />
+    if (currentBook && currentBook._ownerId !== userId) {
+        return <Navigate to={`/books/${bookId}`} replace />
     }
 
     return children ? children : <Outlet />

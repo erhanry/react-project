@@ -25,14 +25,19 @@ export function Header() {
                     </div>
                     <div id="navigation" className={`collapse navbar-collapse text-center${toggleMenu ? ' show' : ''}`}>
                         <ul className="navbar-nav mr-auto">
-                            <li className="nav-item"><NavLink to="/" className="nav-link">Начало</NavLink></li>
-                            <li className="nav-item"><NavLink to="/books" className="nav-link">Книги</NavLink></li>
-                            {isAuthenticated && <li className="nav-item"><Link to="/logout" className="nav-link">Изход</Link></li>}
-                            {!isAuthenticated &&
-                                <>
-                                    <li className="nav-item"><NavLink to="/login" className="nav-link">Вход</NavLink></li>
-                                    <li className="nav-item"><NavLink to="/register" className="nav-link">Регистрация</NavLink></li>
-                                </>
+                            <li className="nav-item"><NavLink to="/" className="nav-link"><i class="fa fa-home"></i> Начало</NavLink></li>
+                            <li className="nav-item"><NavLink to="/books" className="nav-link"><i class="fa fa-book"></i> Книги</NavLink></li>
+                            { isAuthenticated &&
+                                (<>
+                                    <li className="nav-item"><NavLink to="/create" className="nav-link"><i class="fa fa-plus"></i> Създай</NavLink></li>
+                                    <li className="nav-item"><Link to="/logout" className="nav-link"><i class="fa fa-sign-out"></i> Изход</Link></li>
+                                </>)
+                            }
+                            { !isAuthenticated &&
+                                (<>
+                                    <li className="nav-item"><NavLink to="/login" className="nav-link"><i class="fa fa-sign-in"></i> Вход</NavLink></li>
+                                    <li className="nav-item"><NavLink to="/register" className="nav-link"><i class="fa fa-user-md"></i> Регистрация</NavLink></li>
+                                </>)
                             }
                         </ul>
                     </div>

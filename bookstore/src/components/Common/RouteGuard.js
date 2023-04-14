@@ -14,18 +14,14 @@ export const RouteGuard = ({
     return children ? children : <Outlet />
 };
 
-// export const RouteGuard = ({
-//     children,
-// }) => {
-//     const { isAuthenticated } = useAuthContext();
+export const GuestGuard = ({
+    children,
+}) => {
+    const { isAuthenticated } = useAuthContext();
+    
+    if (isAuthenticated) {
+        return <Navigate to="/books" />;
+    }
 
-//     if (!isAuthenticated) {
-//         return <Navigate to='/login' />
-//     }
-
-//     return (
-//         <>
-//             {children}
-//         </>
-//     );
-// };
+    return children ? children : <Outlet />
+};

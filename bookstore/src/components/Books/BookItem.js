@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { BGN } from '../../utils/Utils';
 
 export const BookItem = ({
     _id,
@@ -7,8 +8,7 @@ export const BookItem = ({
     imageUrl,
     sale,
     news,
-    gift,
-    DetailButtons
+    gift
 }) => {
     return (
         <div className="product">
@@ -20,9 +20,9 @@ export const BookItem = ({
             </div>
             <Link to={`/books/${_id}`} className="invisible"><img src={`/img/${imageUrl}`} alt={title} className="img-fluid" /></Link>
             <div className="text">
-                <h3><Link to={`/books/${_id}`}>{title}</Link></h3>
-                <p className="price">{price.toFixed(2)} лв.</p>
-                {DetailButtons && <p className="buttons"><Link to={`/books/${_id}`} className="btn btn-outline-secondary">View detail</Link></p>}
+                <h3>{title}</h3>
+                <p className="price">{BGN(price)}</p>
+                <p className="buttons"><Link to={`/books/${_id}`} className="btn btn-outline-secondary">View detail</Link></p>
             </div>
             {sale && <RibbonSale />}
             {news && <RibbonNew />}

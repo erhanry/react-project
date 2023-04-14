@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import style from './Footer.module.css';
 
-import { Year } from '../../utils/GetDateTime';
+import { Year } from '../../utils/Utils';
 
 const Footer = () => {
     return (

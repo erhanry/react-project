@@ -13,10 +13,10 @@ export const Books = () => {
                 <div className="col-lg-9">
                     <div className="row products">
                         {books.filter(x => x.hidden === false).map(x =>
-                                <div key={x._id} className="col-lg-4 col-md-6">
-                                    <BookItem {...x} {...{DetailButtons: true}} />
-                                </div>
-                            )}
+                            <div key={x._id} className="col-lg-4 col-md-6">
+                                <BookItem {...x} />
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

@@ -1,10 +1,10 @@
 import { requestFactory } from './requester';
 
-const baseUrl = 'http://localhost:3030/data/comments';
+const baseUrl = `${process.env.REACT_APP_API_URL}/data/comments`;
 const request = requestFactory();
 
-export const getAll = async (gameId) => {
-    const searchQuery = encodeURIComponent(`gameId="${gameId}"`);
+export const getAll = async (bookId) => {
+    const searchQuery = encodeURIComponent(`bookId="${bookId}"`);
     const relationQuery = encodeURIComponent(`author=_ownerId:users`);
 
     const result = await request.get(`${baseUrl}?where=${searchQuery}&load=${relationQuery}`);
@@ -13,8 +13,8 @@ export const getAll = async (gameId) => {
     return comments;
 };
 
-export const create = async (gameId, comment) => {
-    const result = await request.post(baseUrl, { gameId, comment });
+export const create = async (bookId, comment) => {
+    const result = await request.post(baseUrl, { bookId, comment });
 
     return result;
 };
