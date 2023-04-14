@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const ProductItem = ({
+export const BookItem = ({
     _id,
     title,
     price,

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Advantages from './Advantages';
 
 import { useBookContext } from '../../contexts/BookContext';
-import { ProductItem } from "../Product/Product";
+import { BookItem } from "../Books/BookItem";
 
 export const Home = () => {
     const { books } = useBookContext();
@@ -15,7 +15,7 @@ export const Home = () => {
                         <div className="row products">
                             {books.filter(x => x.hidden === false).slice(-4).map(x =>
                                 <div key={x._id} className="col-lg-3 col-md-4">
-                                    <ProductItem {...x} />
+                                    <BookItem {...x} />
                                 </div>
                             )}
                         </div>

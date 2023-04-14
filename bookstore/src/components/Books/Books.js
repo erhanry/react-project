@@ -1,7 +1,7 @@
 import { useBookContext } from '../../contexts/BookContext';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { Sidebar } from '../Sidebar/Sidebar';
-import { ProductItem } from "../Product/Product";
+import { BookItem } from "./BookItem";
 
 export const Books = () => {
     const { books } = useBookContext();
@@ -14,7 +14,7 @@ export const Books = () => {
                     <div className="row products">
                         {books.filter(x => x.hidden === false).map(x =>
                                 <div key={x._id} className="col-lg-4 col-md-6">
-                                    <ProductItem {...x} {...{DetailButtons: true}} />
+                                    <BookItem {...x} {...{DetailButtons: true}} />
                                 </div>
                             )}
                     </div>
