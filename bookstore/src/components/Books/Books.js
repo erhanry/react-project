@@ -12,7 +12,7 @@ export const Books = () => {
                 <Sidebar />
                 <div className="col-lg-9">
                     <div className="row products">
-                        {books.map(x =>
+                        { [...books].reverse().map(x =>
                             <div key={x._id} className="col-lg-4 col-md-6">
                                 <BookItem {...x} />
                             </div>

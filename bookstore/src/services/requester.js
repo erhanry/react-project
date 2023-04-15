@@ -1,3 +1,5 @@
+import {Parser} from "../utils/Utils";
+
 const requester = async (method, url, data) => {
     const options = {};
 
@@ -8,7 +10,9 @@ const requester = async (method, url, data) => {
             options.headers = {
                 'content-type': 'application/json',
             };
-
+            data.sale = Parser(data.sale);
+            data.news = Parser(data.news);
+            data.gift = Parser(data.gift);
             options.body = JSON.stringify(data);
         }
     }

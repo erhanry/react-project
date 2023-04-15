@@ -49,6 +49,8 @@ export const BookDetails = () => {
         }
     };
 
+    if (book.imageUrl === "") { book.imageUrl = "image-not-found.svg"; }
+
     return (
         <div className="container">
             <div className="row">
@@ -60,11 +62,21 @@ export const BookDetails = () => {
                             <div className="product">
                                 <div className="flip-container">
                                     <div className="flipper">
-                                        <div className="front"><Link to={`/books/${book._id}`}><img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" /></Link></div>
-                                        <div className="back"><Link to={`/books/${book._id}`}><img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" /></Link></div>
+                                        <div className="front">
+                                            <Link to={`/books/${book._id}`}>
+                                                <img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" />
+                                            </Link>
+                                        </div>
+                                        <div className="back">
+                                            <Link to={`/books/${book._id}`}>
+                                                <img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" />
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
-                                <Link to={`/books/${book._id}`} className="invisible"><img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" /></Link>
+                                <Link to={`/books/${book._id}`} className="invisible">
+                                    <img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" />
+                                </Link>
                                 <div className="text">
                                     <h3>{book.title}</h3>
                                     <p className="price">{BGN(book.price)}</p>

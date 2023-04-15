@@ -10,6 +10,9 @@ export const BookItem = ({
     news,
     gift
 }) => {
+
+    if (imageUrl === "") { imageUrl = "image-not-found.svg"; }
+
     return (
         <div className="product">
             <div className="flip-container">

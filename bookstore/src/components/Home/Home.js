@@ -13,7 +13,7 @@ export const Home = () => {
                 <div className="row">
                     <div className="col">
                         <div className="row products">
-                            {books.filter(x => x.hidden === false).slice(-4).map(x =>
+                            {books.slice(-4).reverse().map(x =>
                                 <div key={x._id} className="col-lg-3 col-md-4">
                                     <BookItem {...x} />
                                 </div>
