@@ -1,6 +1,24 @@
 import { Link } from "react-router-dom";
 import { BGN } from '../../utils/Utils';
 
+export const RibbonSale = () => {
+    return (
+        <div className="ribbon sale">
+            <div className="theribbon">SALE</div>
+            <div className="ribbon-background"></div>
+        </div>
+    );
+};
+export const RibbonNew = () => {
+    return (
+        <div className="ribbon new">
+            <div className="theribbon">NEW</div>
+            <div className="ribbon-background"></div>
+        </div>
+    );
+};
+
+
 export const BookItem = ({
     _id,
     title,
@@ -8,7 +26,6 @@ export const BookItem = ({
     imageUrl,
     sale,
     news,
-    gift
 }) => {
 
     if (imageUrl === "") { imageUrl = "image-not-found.svg"; }
@@ -29,34 +46,8 @@ export const BookItem = ({
             </div>
             {sale && <RibbonSale />}
             {news && <RibbonNew />}
-            {gift && <RibbonGift />}
         </div>
     );
 };
 
-export const RibbonSale = () => {
-    return (
-        <div className="ribbon sale">
-            <div className="theribbon">SALE</div>
-            <div className="ribbon-background"></div>
-        </div>
-    );
-};
 
-export const RibbonNew = () => {
-    return (
-        <div className="ribbon new">
-            <div className="theribbon">NEW</div>
-            <div className="ribbon-background"></div>
-        </div>
-    );
-};
-
-export const RibbonGift = () => {
-    return (
-        <div className="ribbon gift">
-            <div className="theribbon">GIFT</div>
-            <div className="ribbon-background"></div>
-        </div>
-    );
-};

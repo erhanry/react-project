@@ -11,7 +11,7 @@ import { useBookContext } from '../../contexts/BookContext';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { Sidebar } from '../Sidebar/Sidebar';
 import { BGN } from '../../utils/Utils';
-import { RibbonSale, RibbonNew, RibbonGift } from "../Books/BookItem";
+import { RibbonSale, RibbonNew } from "../Books/BookItem";
 
 export const BookDetails = () => {
     const { bookId } = useParams();
@@ -83,7 +83,6 @@ export const BookDetails = () => {
                                 </div>
                                 {book.sale && <RibbonSale />}
                                 {book.news && <RibbonNew />}
-                                {book.gift && <RibbonGift />}
                             </div>
                         </div>
                         <div className="col-md-6">

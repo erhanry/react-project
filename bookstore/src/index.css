@@ -58,15 +58,6 @@ h1 {
   position: static !important;
 }
 
-.menu-large .megamenu {
-  padding: 20px;
-  width: 100%;
-  max-width: 1140px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  margin-top: -1px;
-}
 
 .menu-large a.nav-link {
   padding: 7px !important;
@@ -137,20 +128,6 @@ h1 {
 @media (min-width: 992px) {
   .navbar .dropdown:hover .dropdown-menu {
     display: block;
-  }
-}
-
-.navbar .megamenu {
-  padding: 30px !important;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-}
-
-@media (max-width: 991.98px) {
-  .navbar .megamenu {
-    padding: 15px !important;
-    -webkit-box-shadow: none;
-    box-shadow: none;
   }
 }
 

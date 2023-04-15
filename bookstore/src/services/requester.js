@@ -12,7 +12,6 @@ const requester = async (method, url, data) => {
             };
             data.sale = Parser(data.sale);
             data.news = Parser(data.news);
-            data.gift = Parser(data.gift);
             options.body = JSON.stringify(data);
         }
     }

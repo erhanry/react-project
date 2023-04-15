@@ -12,7 +12,7 @@ import { Register } from './components/Register/Register';
 import { Books } from './components/Books/Books';
 import { BookDetails } from './components/BookDetails/BookDetails';
 import { CreateBook } from "./components/CreateBook/CreateBook";
-//import { EditBook } from './components/EditBook/EditBook';
+import { EditBook } from './components/EditBook/EditBook';
 import { RouteGuard, GuestGuard } from './components/Common/RouteGuard';
 import { BookOwner } from './components/Common/BookOwner';
 
@@ -34,7 +34,7 @@ function App() {
                             <Route element={<RouteGuard />}>
                                 <Route path='/books/:bookId/edit' element={
                                     <BookOwner>
-                                        {/* <EditBook /> */}
+                                        <EditBook />
                                     </BookOwner>
                                 } />
                                 <Route path='/create' element={<CreateBook />} />
