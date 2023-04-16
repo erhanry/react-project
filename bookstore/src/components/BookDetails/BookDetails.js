@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import { useState, useEffect, useReducer } from 'react';
 import { useParams, useNavigate, Link } from "react-router-dom";
 
 import { bookServiceFactory } from '../../services/bookService';
@@ -12,6 +12,8 @@ import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { Sidebar } from '../Sidebar/Sidebar';
 import { BGN } from '../../utils/Utils';
 import { RibbonSale, RibbonNew } from "../Books/BookItem";
+import { ConfirmationModal } from './ConfirmationModal';
+
 
 export const BookDetails = () => {
     const { bookId } = useParams();
@@ -20,6 +22,7 @@ export const BookDetails = () => {
     const [book, dispatch] = useReducer(bookReducer, {});
     const bookService = useService(bookServiceFactory)
     const navigate = useNavigate();
+    const [modal, setModal] = useState(false);
 
     useEffect(() => {
         Promise.all([
@@ -36,23 +39,28 @@ export const BookDetails = () => {
 
     const isOwner = book._ownerId === userId;
 
-    const onDeleteClick = async () => {
-        // eslint-disable-next-line no-restricted-globals
-        const result = confirm(`Are you sure you want to delete ${book.title}`);
+    const openModal = () => {
+        setModal(true);
+    };
 
-        if (result) {
+    const closeModal = () => {
+        setModal(false);
+    };
+
+    const onDeleteClick = async () => {
             await bookService.delete(book._id);
 
             deleteBook(book._id);
+            setModal(false);
 
-            navigate('/books');
-        }
+            navigate('/catalog');
     };
 
     if (book.imageUrl === "") { book.imageUrl = "image-not-found.svg"; }
 
     return (
         <div className="container">
+            {modal && <ConfirmationModal  closeModal={closeModal} onDeleteClick={onDeleteClick} /> }
             <div className="row">
                 <Breadcrumb params="Детайл" />
                 <Sidebar />
@@ -63,14 +71,10 @@ export const BookDetails = () => {
                                 <div className="flip-container">
                                     <div className="flipper">
                                         <div className="front">
-                                            <Link to={`/books/${book._id}`}>
                                                 <img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" />
-                                            </Link>
                                         </div>
                                         <div className="back">
-                                            <Link to={`/books/${book._id}`}>
                                                 <img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" />
-                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +99,8 @@ export const BookDetails = () => {
                                 {isOwner &&
                                     <p className="text-center buttons">
                                         <Link to={`/books/${book._id}/edit`} className="btn btn-primary"><i className="fa fa-edit"></i> Edit</Link>
-                                        <button className="btn btn-outline-danger" onClick={onDeleteClick}><i className="fa fa-trash"></i> Delete</button>
+                                        {/* <button className="btn btn-outline-danger" onClick={onDeleteClick}><i className="fa fa-trash"></i> Delete</button> */}
+                                        <button className="btn btn-outline-danger" onClick={openModal}><i className="fa fa-trash"></i> Delete</button>
                                     </p>}
                             </div>
                         </div>
