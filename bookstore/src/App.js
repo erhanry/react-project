@@ -15,6 +15,7 @@ import { CreateBook } from "./components/CreateBook/CreateBook";
 import { EditBook } from './components/EditBook/EditBook';
 import { RouteGuard, GuestGuard } from './components/Common/RouteGuard';
 import { BookOwner } from './components/Common/BookOwner';
+import { Category } from './components/Category/Category';
 
 function App() {
     return (
@@ -27,6 +28,7 @@ function App() {
                             <Route path='/' element={<Home />} />
                             <Route path='/books' element={<Books />} />
                             <Route path='/books/:bookId' element={<BookDetails />} />
+                            <Route path='/category/:categoryId' element={<Category />} />
 
                             <Route element={<GuestGuard />}>
                                 <Route path='/login' element={<Login />} />
@@ -42,7 +44,6 @@ function App() {
                                     </BookOwner>
                                 } />
                             </Route>
-
                             <Route path='*' element={<Books />} />
                         </Routes>
                     </div>

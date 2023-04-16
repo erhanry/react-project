@@ -20,6 +20,7 @@ export const BookProvider = ({
 
     useEffect(() => {
         bookService.getAll()
+            .then(result => result.reverse())
             .then(result => {
                 setBooks(result)
             })
@@ -44,7 +45,7 @@ export const BookProvider = ({
         navigate('/books');
     };
 
-    const onBookEditSubmit = async (values) => {  
+    const onBookEditSubmit = async (values) => {
         values.sale = serializedBoolean(values.sale);
         values.news = serializedBoolean(values.news);
         const result = await bookService.edit(values._id, values);
@@ -63,9 +64,17 @@ export const BookProvider = ({
     };
 
     const getTopBooks = (count) => {
-        return books.slice(-count).reverse();
+        return books.slice(0, count);
     };
-    
+
+    const categorySelect = (categoryId) => {
+        const items = books.filter(book => book.category === categoryId);
+        const params = category.filter(x => x._id === categoryId).map(y => y.title);
+        return { items, params };
+    };
+
+
+
     const contextValues = {
         books,
         category,
@@ -74,6 +83,7 @@ export const BookProvider = ({
         deleteBook,
         getBook,
         getTopBooks,
+        categorySelect
     };
 
     return (

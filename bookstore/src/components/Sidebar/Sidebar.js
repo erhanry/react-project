@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useBookContext } from '../../contexts/BookContext';
 
 export const Sidebar = () => {
@@ -12,8 +13,9 @@ export const Sidebar = () => {
                     <ul className="nav nav-pills flex-column category-menu">
                         <li>
                             <ul className="list-unstyled">
+                                    <li><Link to="/books">Всички книги</Link></li>
                                 {category.map(x =>
-                                    <li key={x._id}><a href={`/category/${x._id}`}>{x.title}</a></li>
+                                    <li key={x._id}><Link to={`/category/${x._id}`}>{x.title}</Link></li>
                                 )}
                             </ul>
                         </li>

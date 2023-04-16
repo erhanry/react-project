@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useMatch } from "react-router-dom";
 
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -8,7 +8,7 @@ import HeaderTop from "./HeaderTop";
 
 export function Header() {
     const { isAuthenticated, userEmail, changeToggle, toggleMenu } = useContext(AuthContext);
-
+    const isActive = useMatch('/category/*') ? " active" : "";
     return (
         <header className="mb-5">
             <HeaderTop userEmail={userEmail} />
@@ -26,7 +26,7 @@ export function Header() {
                     <div id="navigation" className={`collapse navbar-collapse text-center${toggleMenu ? ' show' : ''}`}>
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item"><NavLink to="/" className="nav-link"><i className="fa fa-home"></i> Начало</NavLink></li>
-                            <li className="nav-item"><NavLink to="/books" className="nav-link"><i className="fa fa-book"></i> Книги</NavLink></li>
+                            <li className="nav-item"><NavLink to="/books" className={`nav-link${isActive}`}><i className="fa fa-book"></i> Книги</NavLink></li>
                             { isAuthenticated &&
                                 (<>
                                     <li className="nav-item"><NavLink to="/create" className="nav-link"><i className="fa fa-plus"></i> Създай</NavLink></li>

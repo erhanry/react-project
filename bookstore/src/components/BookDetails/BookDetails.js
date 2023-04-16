@@ -10,10 +10,9 @@ import { useBookContext } from '../../contexts/BookContext';
 
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import { Sidebar } from '../Sidebar/Sidebar';
-import { BGN } from '../../utils/Utils';
+import { BGN, formatDate } from '../../utils/Utils';
 import { RibbonSale, RibbonNew } from "../Books/BookItem";
 import { ConfirmationModal } from './ConfirmationModal';
-
 
 export const BookDetails = () => {
     const { bookId } = useParams();
@@ -95,6 +94,8 @@ export const BookDetails = () => {
                                 <h4>Издателство</h4><p>{book.publisher}</p><hr />
                                 <h4>Година на издаване</h4><p>{book.issuedYear}</p><hr />
                                 <h4>Език</h4><p>{book.language}</p><hr />
+                                { book._createdOn && <><h4>Създаден на</h4><p>{formatDate(book._createdOn)}</p><hr /></> }
+                                { book._updatedOn && <><h4>Обновен на</h4><p>{formatDate(book._updatedOn)}</p><hr /></> }
                                 <blockquote><p><em>{book.description}</em></p></blockquote><hr />
                                 {isOwner &&
                                     <p className="text-center buttons">

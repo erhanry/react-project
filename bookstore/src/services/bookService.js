@@ -27,11 +27,19 @@ export const bookServiceFactory = (token) => {
 
     const deleteBook = (bookId) => request.delete(`${url}/${bookId}`);
 
+    const searchCategory = async (categoryId) => {        
+        const searchQuery = encodeURIComponent(`category="${categoryId}"`);
+        const result = await request.get(`${url}?where=${searchQuery}`);
+       // const search = Object.values(result);
+        return result;
+    };
+
     return {
         getAll,
         getOne,
         create,
         edit,
         delete: deleteBook,
+        searchCategory
     };
 }

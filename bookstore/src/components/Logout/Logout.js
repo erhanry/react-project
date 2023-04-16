@@ -10,5 +10,5 @@ export const Logout = () => {
         onLogout();
     }, [onLogout]);
 
-    return <Navigate to="/" replace={true} />
+    return <Navigate to="/" />
 };

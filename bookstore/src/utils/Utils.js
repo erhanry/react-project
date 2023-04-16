@@ -20,3 +20,10 @@ export const serializedBoolean = str => {
       return false;
   }
 }
+
+export const formatDate = (input) => {
+  // 16 април 2023 г.
+  const date = new Date(input);
+
+  return date.toLocaleString('bg-BG', { month: 'long', day: 'numeric', year: 'numeric' , timeZone: 'Europe/Sofia'})
+}
