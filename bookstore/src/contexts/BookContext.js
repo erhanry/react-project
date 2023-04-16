@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { bookServiceFactory } from '../services/bookService';
 import { categoryServiceFactory } from '../services/categoryService';
+import { serializedBoolean } from "../utils/Utils";
 
 export const BookContext = createContext();
 
@@ -34,6 +35,8 @@ export const BookProvider = ({
     }, []);
 
     const onCreateBookSubmit = async (data) => {
+        data.sale = serializedBoolean(data.sale);
+        data.news = serializedBoolean(data.news);
         const newBook = await bookService.create(data);
 
         setBooks(state => [...state, newBook]);
@@ -41,12 +44,14 @@ export const BookProvider = ({
         navigate('/books');
     };
 
-    const onBookEditSubmit = async (values) => {
+    const onBookEditSubmit = async (values) => {  
+        values.sale = serializedBoolean(values.sale);
+        values.news = serializedBoolean(values.news);
         const result = await bookService.edit(values._id, values);
 
         setBooks(state => state.map(x => x._id === values._id ? result : x))
 
-        navigate(`/catalog/${values._id}`);
+        navigate(`/books/${values._id}`);
     };
 
     const deleteBook = (bookId) => {
@@ -57,6 +62,10 @@ export const BookProvider = ({
         return books.find(book => book._id === bookId);
     };
 
+    const getTopBooks = (count) => {
+        return books.slice(-count).reverse();
+    };
+    
     const contextValues = {
         books,
         category,
@@ -64,6 +73,7 @@ export const BookProvider = ({
         onBookEditSubmit,
         deleteBook,
         getBook,
+        getTopBooks,
     };
 
     return (

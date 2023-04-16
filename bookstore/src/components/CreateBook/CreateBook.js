@@ -148,8 +148,8 @@ export const CreateBook = () => {
                                                 value={values.news}
                                                 onChange={changeHandler}
                                             >
-                                                <option value={true}>Да</option>
-                                                <option value={false}>Не</option>
+                                                <option value="true">Да</option>
+                                                <option value="false">Не</option>
                                             </select>
                                         </div>
                                     </div>
@@ -163,8 +163,8 @@ export const CreateBook = () => {
                                                 value={values.sale}
                                                 onChange={changeHandler}
                                             >
-                                                <option value={true}>Да</option>
-                                                <option value={false}>Не</option>
+                                                <option value="true">Да</option>
+                                                <option value="false">Не</option>
                                             </select>
                                         </div>
                                     </div>

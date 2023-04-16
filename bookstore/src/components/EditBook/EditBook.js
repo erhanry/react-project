@@ -38,7 +38,7 @@ export const EditBook = () => {
     return (
         <div className="container">
             <div className="row">
-                <Breadcrumb params="Нова Книга" />
+                <Breadcrumb params="Радакция на книга" />
                 <Sidebar />
                 <div id="checkout" className="col-lg-9">
                     <div className="box">
@@ -160,8 +160,8 @@ export const EditBook = () => {
                                                 value={values.news}
                                                 onChange={changeHandler}
                                             >
-                                                <option value={true}>Да</option>
-                                                <option value={false}>Не</option>
+                                            <option value="true">Да</option>
+                                            <option value="false">Не</option>
                                             </select>
                                         </div>
                                     </div>
@@ -175,8 +175,8 @@ export const EditBook = () => {
                                                 value={values.sale}
                                                 onChange={changeHandler}
                                             >
-                                                <option value={true}>Да</option>
-                                                <option value={false}>Не</option>
+                                                <option value="true">Да</option>
+                                                <option value="false">Не</option>
                                             </select>
                                         </div>
                                     </div>

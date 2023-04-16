@@ -20,7 +20,6 @@ export const bookServiceFactory = (token) => {
 
     const create = async (bookData) => {
         const result = await request.post(url, bookData);
-        //console.log(result);    
         return result;
     };
 

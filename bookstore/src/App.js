@@ -25,21 +25,24 @@ function App() {
                     <div id="content">
                         <Routes>
                             <Route path='/' element={<Home />} />
+                            <Route path='/books' element={<Books />} />
+                            <Route path='/books/:bookId' element={<BookDetails />} />
+
                             <Route element={<GuestGuard />}>
                                 <Route path='/login' element={<Login />} />
                                 <Route path='/register' element={<Register />} />
                             </Route>
-                            <Route path='/books' element={<Books />} />
-                            <Route path='/books/:bookId' element={<BookDetails />} />
+
                             <Route element={<RouteGuard />}>
+                                <Route path='/create' element={<CreateBook />} />
+                                <Route path='/logout' element={<Logout />} />
                                 <Route path='/books/:bookId/edit' element={
                                     <BookOwner>
                                         <EditBook />
                                     </BookOwner>
                                 } />
-                                <Route path='/create' element={<CreateBook />} />
-                                <Route path='/logout' element={<Logout />} />
                             </Route>
+
                             <Route path='*' element={<Books />} />
                         </Routes>
                     </div>

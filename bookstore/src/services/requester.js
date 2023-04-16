@@ -1,5 +1,3 @@
-import {Parser} from "../utils/Utils";
-
 const requester = async (method, url, data) => {
     const options = {};
 
@@ -10,8 +8,7 @@ const requester = async (method, url, data) => {
             options.headers = {
                 'content-type': 'application/json',
             };
-            data.sale = Parser(data.sale);
-            data.news = Parser(data.news);
+
             options.body = JSON.stringify(data);
         }
     }
@@ -19,7 +16,7 @@ const requester = async (method, url, data) => {
     const serializedAuth = localStorage.getItem('auth');
     if (serializedAuth) {
         const auth = JSON.parse(serializedAuth);
-        
+
         if (auth.accessToken) {
             options.headers = {
                 ...options.headers,

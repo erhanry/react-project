@@ -5,7 +5,10 @@ import { useBookContext } from '../../contexts/BookContext';
 import { BookItem } from "../Books/BookItem";
 
 export const Home = () => {
-    const { books } = useBookContext();
+
+    const { getTopBooks } = useBookContext();
+    const TopListBooks = getTopBooks(4);
+
     return (
         <>
             <Advantages />
@@ -13,7 +16,7 @@ export const Home = () => {
                 <div className="row">
                     <div className="col">
                         <div className="row products">
-                            {books.slice(-4).reverse().map(x =>
+                            { TopListBooks.map(x =>
                                 <div key={x._id} className="col-lg-3 col-md-4">
                                     <BookItem {...x} />
                                 </div>
