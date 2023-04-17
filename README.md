@@ -11,7 +11,7 @@
 \
 &nbsp;
 
-# React simple code　
+# React sample code　
 
 ```javascript
 import { memo } from 'react';
