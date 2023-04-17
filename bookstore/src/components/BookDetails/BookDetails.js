@@ -51,7 +51,7 @@ export const BookDetails = () => {
         deleteBook(book._id);
         setModal(false);
 
-        navigate('/catalog');
+        navigate('/books');
     };
 
     if (book.imageUrl === "") { book.imageUrl = "image-not-found.svg"; }
