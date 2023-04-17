@@ -40,7 +40,7 @@ export const BookProvider = ({
         data.news = serializedBoolean(data.news);
         const newBook = await bookService.create(data);
 
-        setBooks(state => [...state, newBook]);
+        setBooks(state => [newBook, ...state, ]);
 
         navigate('/books');
     };
