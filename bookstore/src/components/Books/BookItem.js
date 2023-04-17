@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link } from "react-router-dom";
 import { BGN } from '../../utils/Utils';
 
@@ -9,6 +10,7 @@ export const RibbonSale = () => {
         </div>
     );
 };
+
 export const RibbonNew = () => {
     return (
         <div className="ribbon new">
@@ -19,7 +21,8 @@ export const RibbonNew = () => {
 };
 
 
-export const BookItem = ({
+
+export const BookItem = memo(({
     _id,
     title,
     price,
@@ -48,6 +51,4 @@ export const BookItem = ({
             {news && <RibbonNew />}
         </div>
     );
-};
-
-
+});

@@ -50,7 +50,7 @@ const Footer = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6 mb-2 mb-lg-0">
-                            <p className="text-center text-lg-left">© { Year } Your name goes here.</p>
+                            <p className="text-center text-lg-left">© {Year} Your name goes here.</p>
                         </div>
                         <div className="col-lg-6" >
                             <p className="text-center text-lg-right">Template design by <Link to="https://bootstrapious.com/">Bootstrapious</Link>

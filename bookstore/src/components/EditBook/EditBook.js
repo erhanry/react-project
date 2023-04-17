@@ -7,7 +7,7 @@ import { useService } from "../../hooks/useService";
 import { bookServiceFactory } from "../../services/bookService";
 
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
-import { Sidebar } from '../Sidebar/Sidebar';
+import Sidebar from '../Sidebar/Sidebar';
 
 export const EditBook = () => {
     const { category, onBookEditSubmit } = useBookContext();
@@ -160,8 +160,8 @@ export const EditBook = () => {
                                                 value={values.news}
                                                 onChange={changeHandler}
                                             >
-                                            <option value="true">Да</option>
-                                            <option value="false">Не</option>
+                                                <option value="true">Да</option>
+                                                <option value="false">Не</option>
                                             </select>
                                         </div>
                                     </div>

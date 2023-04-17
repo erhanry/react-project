@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from 'react';
+import { useState, useEffect, useReducer, useCallback } from 'react';
 import { useParams, useNavigate, Link } from "react-router-dom";
 
 import { bookServiceFactory } from '../../services/bookService';
@@ -9,10 +9,10 @@ import { bookReducer } from '../../reducers/bookReducer';
 import { useBookContext } from '../../contexts/BookContext';
 
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
-import { Sidebar } from '../Sidebar/Sidebar';
+import Sidebar from '../Sidebar/Sidebar';
+import ConfirmationModal from './ConfirmationModal';
 import { BGN, formatDate } from '../../utils/Utils';
 import { RibbonSale, RibbonNew } from "../Books/BookItem";
-import { ConfirmationModal } from './ConfirmationModal';
 
 export const BookDetails = () => {
     const { bookId } = useParams();
@@ -30,7 +30,6 @@ export const BookDetails = () => {
             const bookState = {
                 ...bookData
             };
-
             dispatch({ type: 'BOOK_FETCH', payload: bookState })
         });
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,28 +37,28 @@ export const BookDetails = () => {
 
     const isOwner = book._ownerId === userId;
 
-    const openModal = () => {
+    const openModal = useCallback(() => {
         setModal(true);
-    };
+    },[]);
 
-    const closeModal = () => {
+    const closeModal = useCallback(() => {
         setModal(false);
-    };
+    },[]);
 
     const onDeleteClick = async () => {
-            await bookService.delete(book._id);
+        await bookService.delete(book._id);
 
-            deleteBook(book._id);
-            setModal(false);
+        deleteBook(book._id);
+        setModal(false);
 
-            navigate('/catalog');
+        navigate('/catalog');
     };
 
     if (book.imageUrl === "") { book.imageUrl = "image-not-found.svg"; }
 
     return (
         <div className="container">
-            {modal && <ConfirmationModal  closeModal={closeModal} onDeleteClick={onDeleteClick} /> }
+            {modal && <ConfirmationModal closeModal={closeModal} onDeleteClick={onDeleteClick} />}
             <div className="row">
                 <Breadcrumb params="Детайл" />
                 <Sidebar />
@@ -70,10 +69,10 @@ export const BookDetails = () => {
                                 <div className="flip-container">
                                     <div className="flipper">
                                         <div className="front">
-                                                <img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" />
+                                            <img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" />
                                         </div>
                                         <div className="back">
-                                                <img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" />
+                                            <img src={`/img/${book.imageUrl}`} alt={book.title} className="img-fluid" />
                                         </div>
                                     </div>
                                 </div>
@@ -94,8 +93,8 @@ export const BookDetails = () => {
                                 <h4>Издателство</h4><p>{book.publisher}</p><hr />
                                 <h4>Година на издаване</h4><p>{book.issuedYear}</p><hr />
                                 <h4>Език</h4><p>{book.language}</p><hr />
-                                { book._createdOn && <><h4>Създаден на</h4><p>{formatDate(book._createdOn)}</p><hr /></> }
-                                { book._updatedOn && <><h4>Обновен на</h4><p>{formatDate(book._updatedOn)}</p><hr /></> }
+                                {book._createdOn && <><h4>Създаден на</h4><p>{formatDate(book._createdOn)}</p><hr /></>}
+                                {book._updatedOn && <><h4>Обновен на</h4><p>{formatDate(book._updatedOn)}</p><hr /></>}
                                 <blockquote><p><em>{book.description}</em></p></blockquote><hr />
                                 {isOwner &&
                                     <p className="text-center buttons">
@@ -111,5 +110,3 @@ export const BookDetails = () => {
         </div>
     );
 };
-
-

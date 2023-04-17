@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { Link } from "react-router-dom";
 import { useBookContext } from '../../contexts/BookContext';
 
-export const Sidebar = () => {
+const Sidebar = () => {
     const { category } = useBookContext();
     return (
         <div className="col-lg-3">
@@ -13,7 +14,7 @@ export const Sidebar = () => {
                     <ul className="nav nav-pills flex-column category-menu">
                         <li>
                             <ul className="list-unstyled">
-                                    <li><Link to="/books">Всички книги</Link></li>
+                                <li><Link to="/books">Всички книги</Link></li>
                                 {category.map(x =>
                                     <li key={x._id}><Link to={`/category/${x._id}`}>{x.title}</Link></li>
                                 )}
@@ -25,3 +26,5 @@ export const Sidebar = () => {
         </div>
     );
 };
+
+export default memo(Sidebar);

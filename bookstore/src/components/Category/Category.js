@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useBookContext } from '../../contexts/BookContext';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
-import { Sidebar } from '../Sidebar/Sidebar';
+import Sidebar from '../Sidebar/Sidebar';
 import { BookItem } from "../Books/BookItem";
 
 export const Category = () => {
+
     const { categoryId } = useParams();
     const { categorySelect } = useBookContext();
     const { items, params } = categorySelect(categoryId);

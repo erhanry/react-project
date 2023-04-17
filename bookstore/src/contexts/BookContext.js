@@ -73,8 +73,6 @@ export const BookProvider = ({
         return { items, params };
     };
 
-
-
     const contextValues = {
         books,
         category,

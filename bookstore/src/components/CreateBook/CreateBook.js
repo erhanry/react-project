@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 
 import { useBookContext } from '../../contexts/BookContext';
@@ -6,7 +5,7 @@ import { useBookContext } from '../../contexts/BookContext';
 import { useForm } from '../../hooks/useForm';
 
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
-import { Sidebar } from '../Sidebar/Sidebar';
+import Sidebar from '../Sidebar/Sidebar';
 
 export const CreateBook = () => {
     const { category, onCreateBookSubmit } = useBookContext();
@@ -30,7 +29,7 @@ export const CreateBook = () => {
                 <Sidebar />
                 <div id="checkout" className="col-lg-9">
                     <div className="box">
-                    <form method="post" onSubmit={onSubmit}>
+                        <form method="post" onSubmit={onSubmit}>
                             <div className="content py-3">
                                 <div className="row">
                                     <div className="col-md-12">

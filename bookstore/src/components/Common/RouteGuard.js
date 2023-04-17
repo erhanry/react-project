@@ -6,7 +6,7 @@ export const RouteGuard = ({
     children,
 }) => {
     const { isAuthenticated } = useAuthContext();
-    
+
     if (!isAuthenticated) {
         return <Navigate to="/login" />;
     }
@@ -18,7 +18,7 @@ export const GuestGuard = ({
     children,
 }) => {
     const { isAuthenticated } = useAuthContext();
-    
+
     if (isAuthenticated) {
         return <Navigate to="/books" />;
     }

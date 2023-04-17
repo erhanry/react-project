@@ -1,4 +1,6 @@
-export const ConfirmationModal = ({
+import { memo } from 'react';
+
+const ConfirmationModal = ({
     closeModal,
     onDeleteClick
 }) => {
@@ -24,3 +26,5 @@ export const ConfirmationModal = ({
         </>
     );
 };
+
+export default memo(ConfirmationModal);

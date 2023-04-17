@@ -6,12 +6,18 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 
+const RegisterFormKeys = {
+    Email: 'email',
+    Password: 'password',
+    ConfirmPassword: 'confirmPassword'
+};
+
 export const Register = () => {
     const { onRegisterSubmit } = useContext(AuthContext);
     const { values, changeHandler, onSubmit } = useForm({
-        email: '',
-        password: '',
-        confirmPassword: '',
+        [RegisterFormKeys.Email]: '',
+        [RegisterFormKeys.Password]: '',
+        [RegisterFormKeys.ConfirmPassword]: '',
     }, onRegisterSubmit);
 
     return (
@@ -26,39 +32,39 @@ export const Register = () => {
                         <hr />
                         <form method="post" onSubmit={onSubmit}>
                             <div className="form-group">
-                                <label htmlFor="email">Email</label>
+                                <label htmlFor={RegisterFormKeys.Email}>Email</label>
                                 <input
                                     type="email"
-                                    id="email"
+                                    id={RegisterFormKeys.Email}
                                     autoComplete="true"
-                                    name="email"
+                                    name={RegisterFormKeys.Email}
                                     placeholder="admin@abv.bg"
                                     className="form-control"
-                                    value={values.email}
+                                    value={values[RegisterFormKeys.Email]}
                                     onChange={changeHandler}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="password">Password</label>
+                                <label htmlFor={RegisterFormKeys.Password}>Password</label>
                                 <input
                                     type="password"
-                                    name="password"
+                                    name={RegisterFormKeys.Password}
+                                    id={RegisterFormKeys.Password}
                                     autoComplete="true"
-                                    id="register-password"
                                     className="form-control"
-                                    value={values.password}
+                                    value={values[RegisterFormKeys.Password]}
                                     onChange={changeHandler}
                                 />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="confirmPassword">Confirm Password</label>
+                                <label htmlFor={RegisterFormKeys.ConfirmPassword}>Confirm Password</label>
                                 <input
                                     type="password"
-                                    name="confirmPassword"
-                                    id="confirmPassword"
+                                    name={RegisterFormKeys.ConfirmPassword}
+                                    id={RegisterFormKeys.ConfirmPassword}
                                     autoComplete="true"
                                     className="form-control"
-                                    value={values.confirmPassword}
+                                    value={values[RegisterFormKeys.ConfirmPassword]}
                                     onChange={changeHandler}
                                 />
                             </div>

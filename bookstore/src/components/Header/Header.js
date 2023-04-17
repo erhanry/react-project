@@ -27,13 +27,13 @@ export function Header() {
                         <ul className="navbar-nav mr-auto">
                             <li className="nav-item"><NavLink to="/" className="nav-link"><i className="fa fa-home"></i> Начало</NavLink></li>
                             <li className="nav-item"><NavLink to="/books" className={`nav-link${isActive}`}><i className="fa fa-book"></i> Книги</NavLink></li>
-                            { isAuthenticated &&
+                            {isAuthenticated &&
                                 (<>
                                     <li className="nav-item"><NavLink to="/create" className="nav-link"><i className="fa fa-plus"></i> Създай</NavLink></li>
                                     <li className="nav-item"><Link to="/logout" className="nav-link"><i className="fa fa-sign-out"></i> Изход</Link></li>
                                 </>)
                             }
-                            { !isAuthenticated &&
+                            {!isAuthenticated &&
                                 (<>
                                     <li className="nav-item"><NavLink to="/login" className="nav-link"><i className="fa fa-sign-in"></i> Вход</NavLink></li>
                                     <li className="nav-item"><NavLink to="/register" className="nav-link"><i className="fa fa-user-md"></i> Регистрация</NavLink></li>
